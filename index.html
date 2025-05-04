@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>生活与社交风格测试</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #f4f4f4;
+            line-height: 1.6;
+        }
+        h1, h2 {
+            text-align: center;
+            color: #333;
+        }
+        .intro, .result {
+            background: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            margin-bottom: 20px;
+        }
+        .question {
+            background: #fff;
+            padding: 15px;
+            margin: 10px 0;
+            border-radius: 8px;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+        }
+        .question h3 {
+            margin: 0 0 10px;
+            color: #444;
+        }
+        label {
+            display: block;
+            margin: 8px 0;
+            cursor: pointer;
+        }
+        input[type="radio"] {
+            margin-right: 8px;
+        }
+        button {
+            display: block;
+            width: 200px;
+            margin: 20px auto;
+            padding: 10px;
+            background: #007BFF;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+        button:hover {
+            background: #0056b3;
+        }
+        .result {
+            display: none;
+            text-align: center;
+        }
+        .progress {
+            text-align: center;
+            margin: 10px 0;
+            color: #666;
+        }
+        @media (max-width: 600px) {
+            body {
+                padding: 10px;
+            }
+            .question {
+                padding: 10px;
+            }
+            button {
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="intro">
+        <h1>生活与社交风格测试</h1>
+        <p>通过15道简单问题，探索你的生活与社交风格！请根据真实想法回答，答案无对错。预计耗时5分钟，完成后将获得个性化反馈。</p>
+    </div>
+
+    <div class="progress" id="progress">已完成 0/15</div>
+
+    <form id="quizForm">
+        <!-- 选择题 -->
+        <div class="question">
+            <h3>1. 朋友聚会中你不小心打翻了杯子，朋友笑你“太笨了”，你会怎么回应？</h3>
+            <label><input type="radio" name="q1" value="A"> 自信化解：“这叫意外美学！”</label>
+            <label><input type="radio" name="q1" value="B"> 温和一笑：“没事，偶尔失手。”</label>
+            <label><input type="radio" name="q1" value="C"> 严肃反驳：“别乱开玩笑，不礼貌。”</label>
+            <label><input type="radio" name="q1" value="D"> 有点不高兴，期待朋友哄你</label>
+            <label><input type="radio" name="q1" value="E"> 笑着自嘲：“哈哈，我是手残党！”</label>
+        </div>
+
+        <div class="question">
+            <h3>2. 你在朋友圈看到有人分享旅行照片，你会怎么互动？</h3>
+            <label><input type="radio" name="q2" value="A"> 不太关注，除非跟自己兴趣相关</label>
+            <label><input type="radio" name="q2" value="B"> 留言鼓励：“好美，玩得开心！”</label>
+            <label><input type="radio" name="q2" value="C"> 理性评论：“这地方性价比如何？”</label>
+            <label><input type="radio" name="q2" value="D"> 有点羡慕，想自己也去拍美照</label>
+            <label><input type="radio" name="q2" value="E"> 批评炫耀：“这种分享有点刻意。”</label>
+        </div>
+
+        <div class="question">
+            <h3>3. 你在团队项目中与同事意见不合，你会怎么处理？</h3>
+            <label><input type="radio" name="q3" value="A"> 坚持立场，认为对方可能误解</label>
+            <label><input type="radio" name="q3" value="B"> 倾听对方，寻找双方满意的方案</label>
+            <label><input type="radio" name="q3" value="C"> 快速决策，优先项目进度</label>
+            <label><input type="radio" name="q3" value="D"> 希望对方让步，觉得自己更专业</label>
+            <label><input type="radio" name="q3" value="E"> 冷静分析，用事实说服对方</label>
+        </div>
+
+        <div class="question">
+            <h3>4. 朋友向你诉说最近的感情困扰，你会怎么回应？</h3>
+            <label><input type="radio" name="q4" value="A"> 鼓励独立：“靠自己也能过得很好！”</label>
+            <label><input type="radio" name="q4" value="B"> 指出问题：“可能你们观念不合。”</label>
+            <label><input type="radio" name="q4" value="C"> 温和安慰：“没事的，会慢慢好起来。”</label>
+            <label><input type="radio" name="q4" value="D"> 听听就好，觉得不好多干涉</label>
+            <label><input type="radio" name="q4" value="E"> 理性分析，帮对方梳理问题</label>
+        </div>
+
+        <div class="question">
+            <h3>5. 你在餐厅遇到服务员态度不好，你会怎么处理？</h3>
+            <label><input type="radio" name="q5" value="A"> 公开投诉，提醒大家注意</label>
+            <label><input type="radio" name="q5" value="B"> 按流程反馈，冷静解决问题</label>
+            <label><input type="radio" name="q5" value="C"> 有点生气，要求道歉或补偿</label>
+            <label><input type="radio" name="q5" value="D"> 温和沟通，试着化解误会</label>
+            <label><input type="radio" name="q5" value="E"> 快速离开，不浪费时间纠缠</label>
+        </div>
+
+        <div class="question">
+            <h3>6. 你被邀请参加一个社区公益活动，你会怎么决定？</h3>
+            <label><input type="radio" name="q6" value="A"> 优先个人计划，工作更重要</label>
+            <label><input type="radio" name="q6" value="B"> 不感兴趣，除非能展现自己</label>
+            <label><input type="radio" name="q6" value="C"> 欣然参加，喜欢帮助他人</label>
+            <label><input type="radio" name="q6" value="D"> 先了解活动意义，比如环保或教育</label>
+            <label><input type="radio" name="q6" value="E"> 视时间而定，可能会试试</label>
+        </div>
+
+        <div class="question">
+            <h3>7. 你看到朋友分享了一篇关于健康饮食的文章，你会怎么想？</h3>
+            <label><input type="radio" name="q7" value="A"> 不关心，觉得跟自己无关</label>
+            <label><input type="radio" name="q7" value="B"> 有点好奇，想试试新食谱</label>
+            <label><input type="radio" name="q7" value="C"> 点赞支持：“好棒，学到了！”</label>
+            <label><input type="radio" name="q7" value="D"> 无感，觉得是个人选择</label>
+            <label><input type="radio" name="q7" value="E"> 质疑内容：“这文章是不是太片面了？”</label>
+        </div>
+
+        <div class="question">
+            <h3>8. 工作上你被分配了一个紧急任务，时间很紧，你会怎么做？</h3>
+            <label><input type="radio" name="q8" value="A"> 合理规划，按部就班完成</label>
+            <label><input type="radio" name="q8" value="B"> 有点抱怨，希望有人分担</label>
+            <label><input type="radio" name="q8" value="C"> 质疑任务是否公平分配</label>
+            <label><input type="radio" name="q8" value="D"> 加班加点，高效完成</label>
+            <label><input type="radio" name="q8" value="E"> 先安慰自己，慢慢完成</label>
+        </div>
+
+        <div class="question">
+            <h3>9. 你在网上看到朋友分享兴趣爱好（如摄影），你会怎么互动？</h3>
+            <label><input type="radio" name="q9" value="A"> 不参与，专注自己事务</label>
+            <label><input type="radio" name="q9" value="B"> 理性留言：“用什么设备拍的？”</label>
+            <label><input type="radio" name="q9" value="C"> 积极反驳：“这风格不适合大众。”</label>
+            <label><input type="radio" name="q9" value="D"> 鼓励支持：“好厉害，很有感觉！”</label>
+            <label><input type="radio" name="q9" value="E"> 不太关注，除非自己也感兴趣</label>
+        </div>
+
+        <div class="question">
+            <h3>10. 周末你最想做什么来放松？</h3>
+            <label><input type="radio" name="q10" value="A"> 打扮精致，拍照分享生活</label>
+            <label><input type="radio" name="q10" value="B"> 随意安排，比如看书或散步</label>
+            <label><input type="radio" name="q10" value="C"> 学习新技能或规划未来</label>
+            <label><input type="radio" name="q10" value="D"> 关注社会话题，参与讨论</label>
+            <label><input type="radio" name="q10" value="E"> 和朋友聚会或看治愈系电影</label>
+        </div>
+
+        <!-- 判断题 -->
+        <div class="question">
+            <h3>11. 我喜欢在朋友需要时，主动提供支持和鼓励。</h3>
+            <label><input type="radio" name="q11" value="yes"> 是</label>
+            <label><input type="radio" name="q11" value="no"> 否</label>
+        </div>
+
+        <div class="question">
+            <h3>12. 我认为大多数问题都可以通过理性沟通解决。</h3>
+            <label><input type="radio" name="q12" value="yes"> 是</label>
+            <label><input type="radio" name="q12" value="no"> 否</label>
+        </div>
+
+        <div class="question">
+            <h3>13. 我更喜欢通过努力实现目标，而不是等待机会。</h3>
+            <label><input type="radio" name="q13" value="yes"> 是</label>
+            <label><input type="radio" name="q13" value="no"> 否</label>
+        </div>
+
+        <div class="question">
+            <h3>14. 我享受在社交场合分享自己的想法和经历。</h3>
+            <label><input type="radio" name="q14" value="yes"> 是</label>
+            <label><input type="radio" name="q14" value="no"> 否</label>
+        </div>
+
+        <div class="question">
+            <h3>15. 我认为帮助他人比追求个人目标更重要。</h3>
+            <label><input type="radio" name="q15" value="yes"> 是</label>
+            <label><input type="radio" name="q15" value="no"> 否</label>
+        </div>
+
+        <button type="submit">提交答案</button>
+    </form>
+
+    <div class="result" id="result">
+        <h2>你的生活风格</h2>
+        <p id="resultText"></p>
+    </div>
+
+    <script>
+        // 计分逻辑
+        const scoring = {
+            q1: { A: 'jobQueen', B: 'healer', C: 'feminist', D: 'fairy', E: 'normal' },
+            q2: { A: 'jobQueen', B: 'healer', C: 'normal', D: 'fairy', E: 'feminist' },
+            q3: { A: 'feminist', B: 'healer', C: 'jobQueen', D: 'fairy', E: 'normal' },
+            q4: { A: 'jobQueen', B: 'feminist', C: 'healer', D: 'fairy', E: 'normal' },
+            q5: { A: 'feminist', B: 'normal', C: 'fairy', D: 'healer', E: 'jobQueen' },
+            q6: { A: 'jobQueen', B: 'fairy', C: 'healer', D: 'feminist', E: 'normal' },
+            q7: { A: 'jobQueen', B: 'fairy', C: 'healer', D: 'normal', E: 'feminist' },
+            q8: { A: 'normal', B: 'fairy', C: 'feminist', D: 'jobQueen', E: 'healer' },
+            q9: { A: 'jobQueen', B: 'normal', C: 'feminist', D: 'healer', E: 'fairy' },
+            q10: { A: 'fairy', B: 'normal', C: 'jobQueen', D: 'feminist', E: 'healer' }
+        };
+
+        const identityDescriptions = {
+            healer: '你温柔体贴，擅长用温暖感染他人，喜欢支持朋友和营造和谐氛围。你的风格温和而实用！',
+            normal: '你理性务实，善于平衡生活与目标，喜欢用沟通解决问题。你的风格温和而实用！',
+            fairy: '你热爱生活，喜欢展现独特魅力，享受被关注的时刻。你的风格充满个性与主张！',
+            jobQueen: '你独立自信，目标明确，注重效率和成就。你的风格温和而实用！',
+            feminist: '你敢于发声，关注公平与改变，热衷表达观点。你的风格充满个性与主张！'
+        };
+
+        // 进度更新
+        function updateProgress() {
+            const inputs = document.querySelectorAll('input[type="radio"]:checked');
+            document.getElementById('progress').textContent = `已完成 ${inputs.length}/15`;
+        }
+
+        document.querySelectorAll('input[type="radio"]').forEach(input => {
+            input.addEventListener('change', updateProgress);
+        });
+
+        // 表单提交
+        document.getElementById('quizForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+
+            // 初始化分数
+            let scores = { healer: 0, normal: 0, fairy: 0, jobQueen: 0, feminist: 0 };
+            let feministTendency = 0;
+
+            // 选择题计分
+            for (let i = 1; i <= 10; i++) {
+                const answer = document.querySelector(`input[name="q${i}"]:checked`);
+                if (answer) {
+                    const identity = scoring[`q${i}`][answer.value];
+                    scores[identity]++;
+                    if (identity === 'fairy' || identity === 'feminist') {
+                        feministTendency++;
+                    }
+                }
+            }
+
+            // 判断题计分
+            const judgeQuestions = [
+                { q: 'q11', yes: 'healer', score: 0.5 },
+                { q: 'q12', yes: 'normal', score: 0.5 },
+                { q: 'q13', yes: 'jobQueen', score: 0.5 },
+                { q: 'q14', yes: 'fairy', score: 0.5 },
+                { q: 'q15', yes: 'healer', score: 0.5 }
+            ];
+
+            judgeQuestions.forEach(({ q, yes, score }) => {
+                const answer = document.querySelector(`input[name="${q}"]:checked`);
+                if (answer) {
+                    if (answer.value === 'yes') {
+                        scores[yes] += score;
+                        if (q === 'q14' && answer.value === 'yes') feministTendency += 0.5;
+                    } else {
+                        for (let key in scores) {
+                            if (key !== yes) scores[key] += 0.1;
+                        }
+                        if (q === 'q15' && answer.value === 'no') feministTendency += 0.5;
+                    }
+                }
+            });
+
+            // 验证是否答完
+            const answered = document.querySelectorAll('input[type="radio"]:checked').length;
+            if (answered < 15) {
+                alert('请回答所有问题！');
+                return;
+            }
+
+            // 确定身份
+            let maxScore = 0;
+            let maxIdentity = '';
+            for (let identity in scores) {
+                if (scores[identity] > maxScore) {
+                    maxScore = scores[identity];
+                    maxIdentity = identity;
+                }
+            }
+
+            // 检查女拳倾向值
+            const isHighTendency = feministTendency >= 3;
+            let resultText = identityDescriptions[maxIdentity];
+            if (isHighTendency && maxIdentity !== 'fairy' && maxIdentity !== 'feminist') {
+                resultText += '<br>你可能还有一些独特的个性倾向，喜欢展现自我或关注公平！';
+            }
+
+            // 处理平分
+            const tiedIdentities = Object.keys(scores).filter(id => scores[id] === maxScore);
+            if (tiedIdentities.length > 1) {
+                resultText = '你的风格有些混合倾向：<br>' + tiedIdentities.map(id => identityDescriptions[id]).join('<br>');
+            }
+
+            // 显示结果
+            document.getElementById('resultText').innerHTML = resultText;
+            document.getElementById('result').style.display = 'block';
+            document.getElementById('quizForm').style.display = 'none';
+            document.querySelector('.intro').style.display = 'none';
+            document.getElementById('progress').style.display = 'none';
+        });
+    </script>
+</body>
+</html>
